@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Visualize Audio Sentiment</title>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>
+</head>
+<body>
+<h1>Visualize Audio Sentiment</h1>
+<canvas id="chart" width="400" height="200"></canvas>
+<script>
+    new Chart(document.getElementById("chart"), {
+         type: 'pie',
+          data: {
+            labels: {{labels | tojson}},
+            datasets: [{
+              label: "Pie Chart",
+              backgroundColor: {{colors | tojson}},
+            data: {{values | tojson}}
+            }]
+          },
+          options: {
+            title: {
+              display: true,
+              text: 'Pie Chart Title'
+            }
+          }
+        });
+</script>
+</body>
+</html>

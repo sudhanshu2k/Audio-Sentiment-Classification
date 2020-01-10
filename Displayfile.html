@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+   <body>
+      <h1 style="text-align:center;">Displaying Prediction Result</h1>
+      <div align="center">
+     <table border = 1 style="width:75%" class="tablesorter">
+   <tr bgcolor="yellow">
+<th>AudioFileName</th>
+<th>Comment Text</th>
+<th>Sentiment </th>
+</tr>
+    {% for key, value in Output.items() %}
+    <tr>
+    <td> {{ key }} </td>
+    {% for val in value %}
+    <td> {{ val }} </td>
+    {% endfor %}
+    </tr>
+	 {% endfor %}
+       </table></div>
+	<div align="center">
+	<table >
+		 <tr>
+		<form id="form-Sentiment" action="http://10.142.56.96:5000/DisplayPercentageSentiment" enctype="multipart/form-data">        
+		 <button id="btnSentiment" class="btn btn-lg btn-success" style="background-color:yellow" type="submit"><b>Visualise Sentiment</b></button>
+		 </form>
+		 </table></div>
+   </body>
+
+</html>
